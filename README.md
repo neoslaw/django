@@ -1,2 +1,6 @@
 # django
+==============
 Kurs django
+
+#test
+
