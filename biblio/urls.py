@@ -17,11 +17,14 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from shelf.views import BookListView, PublisherListView
+from contact.views import MessageAddView
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^shelf/', include('shelf.urls', namespace='shelf')),
 
     url(r'^books/$', BookListView.as_view()),
-    url(r'^publishers/$', PublisherListView.as_view())
+    url(r'^publishers/$', PublisherListView.as_view()),
+
+    url(r'^contact/$', MessageAddView.as_view()),
 ]
