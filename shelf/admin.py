@@ -3,7 +3,7 @@
 from __future__ import unicode_literals, absolute_import
 ##########################################
 from django.contrib import admin
-from .models import Author,Publisher,Book, BookCategory
+from .models import Author, Publisher, Book, BookCategory, BookEdition
 
 # Register your models here.
 
@@ -20,3 +20,4 @@ admin.site.register(Author, AuthorAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Publisher)
 admin.site.register(BookCategory)
+admin.site.register(BookEdition)
