@@ -48,7 +48,7 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse_lazy('self:book-detail', kwargs={'pk':self.id})
+        return reverse_lazy('shelf:book-detail', kwargs={'pk': self.id})
 
 @python_2_unicode_compatible
 class BookEdition(models.Model):

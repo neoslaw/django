@@ -37,6 +37,13 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    #########################
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #'allauth.socialaccount.providers.facebook',
+    ########################
     'shelf',
     'contact',
     'rental',
@@ -66,11 +73,22 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+                "django.contrib.auth.context_processors.auth",
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.tz",
+                'django.core.context_processors.request',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+        'django.contrib.auth.backends.ModelBackend',
+        "allauth.account.auth_backends.AuthenticationBackend",
+    )
 
 WSGI_APPLICATION = 'biblio.wsgi.application'
 
@@ -107,5 +125,13 @@ STATIC_URL = '/static/'
 
 TEMPLATES_DIRS = (
     os.path.join(BASE_DIR, 'templates')
+)
+
+SITE_ID = 1 # because of 'django.contrib.sites'
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 
 )
