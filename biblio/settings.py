@@ -31,6 +31,11 @@ ALLOWED_HOSTS = [] # '127.0.0.1'
 # Application definition
 
 INSTALLED_APPS = (
+    'shelf',
+    'contact',
+    'rental',
+    'users',
+    ########################
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,15 +43,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'bootstrap3',
     #########################
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    ########################
-    'shelf',
-    'contact',
-    'rental',
+    #'allauth.socialaccount.providers.facebook',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,7 +124,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
 
 TEMPLATES_DIRS = (
     os.path.join(BASE_DIR, 'templates')
@@ -129,9 +131,25 @@ TEMPLATES_DIRS = (
 
 SITE_ID = 1 # because of 'django.contrib.sites'
 
+LOGIN_REDIRECT_URL = 'main-page'  #''
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    ("media", os.path.join(BASE_DIR, 'media')),
+
+]
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 
 )
+AUTH_USER_MODEL = 'users.BiblioUser'

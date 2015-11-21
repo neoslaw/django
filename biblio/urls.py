@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from django.conf import settings
 from shelf.views import BookListView, PublisherListView
 from contact.views import MessageAddView
 
@@ -29,4 +29,6 @@ urlpatterns = [
     url(r'^contact/$', MessageAddView.as_view()),
     url(r'^$', 'shelf.views.index_view', name='main-page'),
     url(r'^accounts/', include('allauth.urls')),
+    #url(r'^accounts/profile/$', MyProfileView.as_view()),
 ]
+

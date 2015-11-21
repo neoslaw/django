@@ -2,7 +2,10 @@ decorator==4.0.4
 defusedxml==0.4.1
 Django==1.8.6
 django-allauth==0.24.1
+django-bootstrap3==6.2.2
+django-configuration==0.0.3
 django-configurations==0.8
+django-polymorphic==0.7.2
 ipython==4.0.0
 ipython-genutils==0.1.0
 oauthlib==1.0.3
