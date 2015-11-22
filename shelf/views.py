@@ -16,10 +16,6 @@ index_view = MainPageView.as_view()
 class AuthorListView(ListView):
     model = Author
 
-    @method_decorator(login_required)
-    def dispatch(self, *args, **kwargs):
-        super(AuthorListView, self).dispatch(*args, **kwargs)
-
 class AuthorDetailView(DetailView):
     model = Author
 
