@@ -1,8 +1,8 @@
 from django.conf.urls import include, url
 
-from .views import ( AuthorListView,AuthorDetailView, BookListView, BookDetailView
+from .views import ( AuthorListView,AuthorDetailView, BookListView, BookDetailView)
+from django.contrib.auth.decorators import login_required
 
-)
 
 urlpatterns = [
     url(r'^autorzy/$', AuthorListView.as_view(), name='author-list'),

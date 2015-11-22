@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 from django.http import HttpResponse
 from .models import Author, Book, Publisher
-
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 class MainPageView(TemplateView):
     template_name = 'index.html'
 
@@ -14,6 +15,10 @@ index_view = MainPageView.as_view()
 
 class AuthorListView(ListView):
     model = Author
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        super(AuthorListView, self).dispatch(*args, **kwargs)
 
 class AuthorDetailView(DetailView):
     model = Author

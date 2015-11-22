@@ -16,4 +16,7 @@ class Rental(models.Model):
                                                           what=self.what,
                                                           when=self.when,
                                                           )
-
+    class Meta:
+        permissions = (
+            ('can_rent', 'Can rent a book'), # czy użytkownik może dokonać wypożyczenia
+        )
